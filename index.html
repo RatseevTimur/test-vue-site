@@ -3,62 +3,17 @@
 <head>
     <meta name="viewport" content="width=divice-width, initial-scale">
     <title>Product App</title>
-    <link rel="stylesheet" type="text/css" href="index.css"
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <div class="nav-bar"></div>
 
 <div id="app">
   
-  <div class="product">
-        
-    <div class="product-image">
-      <img :src="image" />
-    </div>
+    <product :premium="premium"></product>
 
-    <div class="product-info">
-      <h1>{{ product }}</h1>
-      <p v-if="inStock">In Stock</p>
-      <p v-else>Out of Stock</p>
-
-      <ul>
-        <li v-for="detail in details">{{ detail }}</li>
-      </ul>
-
-        <div class="color-box"
-        v-for="(variant, index) in variants" 
-        :key="variant.variantId"
-        :style="{ backgroundColor: variant.variantColor }"
-        @mouseover="updateProduct(index)"
-        >
-        <p class="сounter">{{ variant.variantQuantity }}</p>
-        </div>
-        
-    </div> 
-
-    <button v-on:click="addToCart" 
-    :disabled="!inStock"
-    :class="{ disabledButton: !inStock }"
-    >
-    Add to cart
-    </button>
-
-      <Button v-on:click="subtractToCart" 
-        :disabled="cart <= 0"
-        :class="{ disabledButton: cart <= 0 }">
-        <span style='font-size:15px;'>&#10006;</span>
-        -1
-    </Button>
-
-      <button class="cart" v-on:click="resetToCart">
-        <p class="сounterCart">Cart({{ cart }})</p>
-      </button>
-
-    </div>
-    
-  </div>
-  
 </div> 
+
 </html>
 
  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
