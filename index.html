@@ -9,10 +9,22 @@
 <div class="nav-bar"></div>
 
 <div id="app">
-  
-    <product :premium="premium"></product>
+  <ul>
+    <li>Cart({{ cart }})</li>
+  </ul>
+                                      <!--/////////////////////////////////////////////////////////////////-->
+                                        <!-- <button v-on:click="subtractToCart" 
+                                          :disabled="cart.length <= 0"
+                                          :class="{ disabledButton: cart.length <= 0 }">
+                                          -1
+                                          </button>-->
+                                      <!--/////////////////////////////////////////////////////////////////-->
+    <div class="cart">
+      <p>Cart({{ cart.length }})</p>
+    </div>
+    <product :premium="premium" @add-to-cart="updateCart"></product>
 
-</div> 
+  </div> 
 
 </html>
 
